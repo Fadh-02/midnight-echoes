@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  overflow: hidden;
+  background-image: url("images/nebula.png"); /* INITIAL background — change file if you want */
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out, background-color 0.6s ease-in-out;
+  color: #fff;
+  position: relative;
+}
+
+/* dark overlay so text readable on bright parts of image */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container {
+  text-align: center;
+  z-index: 2;
+  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Message styling */
+h1#message {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.6rem, 3.6vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  max-width: 80%;
+  margin: 0 auto;
+
+  /* gradient text */
+  background: linear-gradient(90deg, #ff6ec7 0%, #8a2be2 50%, #4b63ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* shadow / glow */
+  text-shadow: 
+    1px 1px 2px rgba(255, 255, 255, 0.5);
+    /* 0 0 3px rgba(255,255,255,0.5),
+    0 0 6px rgba(255,255,255,0.3),
+    0 0 10px rgba(255,255,255,0.2); */
+}
+
+/* Button styling */
+button#generate {
+  padding: 12px 34px;
+  background: rgba(0,0,0,0.35);
+  border: 1.5px solid rgba(138,43,226,0.95);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 28px;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 12px rgba(138,43,226,0.18), inset 0 -2px 8px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+}
+
+button#generate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(138,43,226,0.35);
+  background: rgba(138,43,226,0.12);
+}
+
+/* small-screen tweaks */
+@media (max-width: 520px) {
+  h1#message { font-size: clamp(1.2rem, 4.5vw, 1.8rem); max-width: 90%; padding: 8px 10px; }
+  button#generate { padding: 10px 20px; font-size: 0.95rem; }
+}
